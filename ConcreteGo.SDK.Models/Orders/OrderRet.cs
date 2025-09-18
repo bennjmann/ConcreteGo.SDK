@@ -102,6 +102,19 @@ namespace ConcreteGo.SDK.Models.Orders
         [XmlElement(ElementName = "ProjectName")]
         public string ProjectName { get; set; }
 
+        [XmlElement(ElementName = "ProjectID")]
+        public string _ProjectID { get; set; }
+        [XmlIgnore]
+        public int? ProjectID
+        {
+            get
+            {
+                if(int.TryParse(_ProjectID, out var value))
+                    return value;
+                return null;
+            }
+        }
+
         [XmlElement(ElementName = "LotBlockNumber")]
         public string LotBlockNumber { get; set; }
 
@@ -219,6 +232,9 @@ namespace ConcreteGo.SDK.Models.Orders
 
         [XmlElement(ElementName = "OrderedByPhone")]
         public string OrderedByPhone { get; set; }
+
+        [XmlElement(ElementName = "RecipientEmail")]
+        public string RecipientEmail { get; set; }
 
         [XmlElement(ElementName = "PocketNumber")]
         public string PocketNumber { get; set; }
