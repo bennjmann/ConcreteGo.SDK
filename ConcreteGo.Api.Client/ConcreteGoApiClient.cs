@@ -279,6 +279,14 @@ namespace ConcreteGo.Api.Client
             return response?.ItemRet;
         }
 
+        public async Task<ItemUpdateResponse?> AddOrUpdateItemWithResponse(ItemAddOrUpdateRequest data)
+        {
+            await ManageLogin();
+            var request = BuildXmlRequest(data);
+            var response = await ProcessRequest<ItemUpdateResponse>(request);
+            return response;
+        }
+
         #endregion
 
         #region Item Categories

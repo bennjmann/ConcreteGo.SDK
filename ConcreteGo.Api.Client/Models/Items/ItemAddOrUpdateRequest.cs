@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace ConcreteGo.Api.Client.Models.Items
 {
-    [XmlRoot(ElementName = "ItemUpdateRq")]
+    [XmlRoot(ElementName = "ItemUpdateRq", Namespace = "")]
     public class ItemAddOrUpdateRequest
     {
         [XmlElement(ElementName = "ItemUpdate")]
@@ -38,9 +38,21 @@ namespace ConcreteGo.Api.Client.Models.Items
         public string? ShortDescription { get; set; }
         public bool ShouldSerializeShortDescription() => !string.IsNullOrEmpty(ShortDescription);
 
+        [XmlElement(ElementName = "IsResaleable")]
+        public bool? IsResaleable { get; set; }
+        public bool ShouldSerializeIsResaleable() => IsResaleable.HasValue;
+
         [XmlElement(ElementName = "CategoryCode")]
         public string? CategoryCode { get; set; }
         public bool ShouldSerializeCategoryCode() => !string.IsNullOrEmpty(CategoryCode);
+
+        [XmlElement(ElementName = "ItemType")]
+        public string? ItemType { get; set; }
+        public bool ShouldSerializeItemType() => !string.IsNullOrEmpty(ItemType);
+
+        [XmlElement(ElementName = "ItemTypeID")]
+        public int? ItemTypeID { get; set; }
+        public bool ShouldSerializeStrength() => ItemTypeID.HasValue;
 
         [XmlElement(ElementName = "KeepInInventory")]
         public bool? KeepInInventory { get; set; }
@@ -278,9 +290,20 @@ namespace ConcreteGo.Api.Client.Models.Items
     [XmlRoot(ElementName = "Location")]
     public class ItemUpdateLocation
     {
-        [XmlAttribute(AttributeName = "Active")]
+        //[XmlAttribute(AttributeName = "Active")]
+        //public bool? Active { get; set; }
+        //public bool ShouldSerializeActive() => Active.HasValue;
+        [XmlIgnore]
         public bool? Active { get; set; }
-        public bool ShouldSerializeActive() => Active.HasValue;
+
+        [XmlAttribute(AttributeName = "Active")]
+        public string ActiveString
+        {
+            get => Active?.ToString().ToLower();
+            set => Active = string.IsNullOrEmpty(value) ? null : bool.Parse(value);
+        }
+
+        public bool ShouldSerializeActiveString() => Active.HasValue;
 
         [XmlElement(ElementName = "LocationID")]
         public int? LocationID { get; set; }
