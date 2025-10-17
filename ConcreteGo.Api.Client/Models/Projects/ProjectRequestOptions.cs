@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ConcreteGo.Api.Client.Models.Projects
 {
+    [XmlRoot(ElementName = "ProjectQueryRq")]
     public class ProjectRequestOptions
     {
         public List<int> IDs { get; set; } = new List<int>();

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ConcreteGo.Api.Client.Models.Quotes
 {
+    [XmlRoot(ElementName = "QuoteQueryRq")]
     public class QuoteRequestOptions
     {
         public List<int> IDs { get; set; } = new List<int>();

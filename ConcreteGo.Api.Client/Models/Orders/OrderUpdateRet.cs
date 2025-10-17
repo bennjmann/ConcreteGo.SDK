@@ -1,3 +1,4 @@
+using ConcreteGo.Api.Client.Models.Options;
 using System.Xml.Serialization;
 
 namespace ConcreteGo.Api.Client.Models.Orders

@@ -85,19 +85,19 @@ namespace ConcreteGo.Api.Client.Models.Customers
         [XmlElement(ElementName = "InActive")]
         public bool InActive { get; set; }
         [XmlElement(ElementName = "UserDefinedFields")]
-        public UserDefinedFields UserDefinedFields { get; set; }
+        public CustomerRetUserDefinedFields UserDefinedFields { get; set; }
     }
 
     [XmlRoot(ElementName = "UserDefinedFields")]
-    public class UserDefinedFields
+    public class CustomerRetUserDefinedFields
     {
 
         [XmlElement(ElementName = "UserDefinedField")]
-        public List<UserDefinedField> UserDefinedField { get; set; }
+        public List<CustomerRetUserDefinedField> UserDefinedField { get; set; }
     }
 
     [XmlRoot("UserDefinedField")]
-    public class UserDefinedField
+    public class CustomerRetUserDefinedField
     {
         [XmlElement("Name")]
         public string Name { get; set; } = string.Empty;

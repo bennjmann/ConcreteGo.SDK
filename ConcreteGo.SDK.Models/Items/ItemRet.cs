@@ -113,85 +113,108 @@ namespace ConcreteGo.SDK.Models.Items
     public class UOM
     {
         [XmlElement(ElementName = "ID")]
-        public int ID { get; set; }
+        public int? ID { get; set; }
+        public bool ShouldSerializeID() => ID.HasValue;
 
         [XmlElement(ElementName = "OrderedQuantityUnitCode")]
-        public string OrderedQuantityUnitCode { get; set; } = string.Empty;
+        public string? OrderedQuantityUnitCode { get; set; }
+        public bool ShouldSerializeOrderedQuantityUnitCode() => !string.IsNullOrEmpty(OrderedQuantityUnitCode);
 
         [XmlElement(ElementName = "OrderedQuantityUnit")]
-        public string OrderedQuantityUnit { get; set; } = string.Empty;
+        public string? OrderedQuantityUnit { get; set; }
+        public bool ShouldSerializeOrderedQuantityUnit() => !string.IsNullOrEmpty(OrderedQuantityUnit);
 
         [XmlElement(ElementName = "OrderedExtensionCode")]
-        public string OrderedExtensionCode { get; set; } = string.Empty;
+        public string? OrderedExtensionCode { get; set; }
+        public bool ShouldSerializeOrderedExtensionCode() => !string.IsNullOrEmpty(OrderedExtensionCode);
 
         [XmlElement(ElementName = "DeliveredQuantityUnitCode")]
-        public string DeliveredQuantityUnitCode { get; set; } = string.Empty;
+        public string? DeliveredQuantityUnitCode { get; set; }
+        public bool ShouldSerializeDeliveredQuantityUnitCode() => !string.IsNullOrEmpty(DeliveredQuantityUnitCode);
 
         [XmlElement(ElementName = "DeliveredQuantityUnit")]
-        public string DeliveredQuantityUnit { get; set; } = string.Empty;
+        public string? DeliveredQuantityUnit { get; set; }
+        public bool ShouldSerializeDeliveredQuantityUnit() => !string.IsNullOrEmpty(DeliveredQuantityUnit);
 
         [XmlElement(ElementName = "TicketExtensionCode")]
-        public string TicketExtensionCode { get; set; } = string.Empty;
+        public string? TicketExtensionCode { get; set; }
+        public bool ShouldSerializeTicketExtensionCode() => !string.IsNullOrEmpty(TicketExtensionCode);
 
         [XmlElement(ElementName = "PriceQuantityUnitCode")]
-        public string PriceQuantityUnitCode { get; set; } = string.Empty;
+        public string? PriceQuantityUnitCode { get; set; }
+        public bool ShouldSerializePriceQuantityUnitCode() => !string.IsNullOrEmpty(PriceQuantityUnitCode);
 
         [XmlElement(ElementName = "PriceQuantityUnit")]
-        public string PriceQuantityUnit { get; set; } = string.Empty;
+        public string? PriceQuantityUnit { get; set; }
+        public bool ShouldSerializePriceQuantityUnit() => !string.IsNullOrEmpty(PriceQuantityUnit);
 
         [XmlElement(ElementName = "PriceExtensionCode")]
-        public string PriceExtensionCode { get; set; } = string.Empty;
+        public string? PriceExtensionCode { get; set; }
+        public bool ShouldSerializePriceExtensionCode() => !string.IsNullOrEmpty(PriceExtensionCode);
 
         [XmlElement(ElementName = "BatchUnitCode")]
-        public string BatchUnitCode { get; set; } = string.Empty;
+        public string? BatchUnitCode { get; set; }
+        public bool ShouldSerializeBatchUnitCode() => !string.IsNullOrEmpty(BatchUnitCode);
 
         [XmlElement(ElementName = "BatchUnit")]
-        public string BatchUnit { get; set; } = string.Empty;
+        public string? BatchUnit { get; set; }
+        public bool ShouldSerializeBatchUnit() => !string.IsNullOrEmpty(BatchUnit);
 
         [XmlElement(ElementName = "InventoryUnitCode")]
-        public string InventoryUnitCode { get; set; } = string.Empty;
+        public string? InventoryUnitCode { get; set; }
+        public bool ShouldSerializeInventoryUnitCode() => !string.IsNullOrEmpty(InventoryUnitCode);
 
         [XmlElement(ElementName = "InventoryUnit")]
-        public string InventoryUnit { get; set; } = string.Empty;
+        public string? InventoryUnit { get; set; }
+        public bool ShouldSerializeInventoryUnit() => !string.IsNullOrEmpty(InventoryUnit);
 
         [XmlElement(ElementName = "PurchaseUnitCode")]
-        public string PurchaseUnitCode { get; set; } = string.Empty;
+        public string? PurchaseUnitCode { get; set; }
+        public bool ShouldSerializePurchaseUnitCode() => !string.IsNullOrEmpty(PurchaseUnitCode);
 
         [XmlElement(ElementName = "PurchaseUnit")]
-        public string PurchaseUnit { get; set; } = string.Empty;
+        public string? PurchaseUnit { get; set; }
+        public bool ShouldSerializePurchaseUnit() => !string.IsNullOrEmpty(PurchaseUnit);
 
         [XmlElement(ElementName = "ReportingUnitCode")]
-        public string ReportingUnitCode { get; set; } = string.Empty;
+        public string? ReportingUnitCode { get; set; }
+        public bool ShouldSerializeReportingUnitCode() => !string.IsNullOrEmpty(ReportingUnitCode);
 
         [XmlElement(ElementName = "ReportingUnit")]
-        public string ReportingUnit { get; set; } = string.Empty;
+        public string? ReportingUnit { get; set; }
+        public bool ShouldSerializeReportingUnit() => !string.IsNullOrEmpty(ReportingUnit);
 
         [XmlElement(ElementName = "DosageQuantity")]
-        public decimal? DosageQuantity { get; set; } 
+        public decimal? DosageQuantity { get; set; }
+        public bool ShouldSerializeDosageQuantity() => DosageQuantity.HasValue;
 
         [XmlElement(ElementName = "PerCemWeightDivisor")]
         public decimal? PerCemWeightDivisor { get; set; }
+        public bool ShouldSerializePerCemWeightDivisor() => PerCemWeightDivisor.HasValue;
 
         [XmlElement(ElementName = "UseDosageQuantityUOMInMixDesign")]
         public UseDosageQuantityUOMInMixDesign UseDosageQuantityUOMInMixDesign { get; set; } = null!;
+        public bool ShouldSerializeUseDosageQuantityUOMInMixDesign() => UseDosageQuantityUOMInMixDesign != null;
     }
 
     [XmlRoot(ElementName = "UseDosageQuantityUOMInMixDesign")]
     public class UseDosageQuantityUOMInMixDesign
     {
-
         [XmlElement(ElementName = "Enable")]
         public bool? Enable { get; set; }
+        public bool ShouldSerializeEnable() => Enable.HasValue;
 
         [XmlElement(ElementName = "DosageQuantityExtensionCode")]
-        public string DosageQuantityExtensionCode { get; set; } = string.Empty;
+        public string? DosageQuantityExtensionCode { get; set; }
+        public bool ShouldSerializeDosageQuantityExtensionCode() => !string.IsNullOrEmpty(DosageQuantityExtensionCode);
 
         [XmlElement(ElementName = "PerCemWeightDivisor")]
         public decimal? PerCemWeightDivisor { get; set; }
+        public bool ShouldSerializePerCemWeightDivisor() => PerCemWeightDivisor.HasValue;
 
         [XmlElement(ElementName = "DosageQuantity")]
-        public decimal? DosageQuantity { get; set; } 
-
+        public decimal? DosageQuantity { get; set; }
+        public bool ShouldSerializeDosageQuantity() => DosageQuantity.HasValue;
     }
 
     [XmlRoot(ElementName = "Sales")]
@@ -425,23 +448,30 @@ namespace ConcreteGo.SDK.Models.Items
     {
         [XmlElement(ElementName = "Sort")]
         public int? Sort { get; set; }
+        public bool ShouldSerializeSort() => Sort.HasValue;
 
         [XmlElement(ElementName = "ItemID")]
         public int? ItemID { get; set; }
+        public bool ShouldSerializeItemID() => ItemID.HasValue;
 
         [XmlElement(ElementName = "Code")]
-        public string Code { get; set; } = string.Empty;
+        public string? Code { get; set; }
+        public bool ShouldSerializeCode() => !string.IsNullOrEmpty(Code);
 
         [XmlElement(ElementName = "Description")]
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; }
+        public bool ShouldSerializeDescription() => !string.IsNullOrEmpty(Description);
 
         [XmlElement(ElementName = "Quantity")]
         public decimal? Quantity { get; set; }
+        public bool ShouldSerializeQuantity() => Quantity.HasValue;
 
         [XmlElement(ElementName = "DosageQuantity")]
         public decimal? DosageQuantity { get; set; }
+        public bool ShouldSerializeDosageQuantity() => DosageQuantity.HasValue;
 
         [XmlElement(ElementName = "Unit")]
-        public string Unit { get; set; } = string.Empty;
+        public string? Unit { get; set; }
+        public bool ShouldSerializeUnit() => !string.IsNullOrEmpty(Unit);
     }
 }

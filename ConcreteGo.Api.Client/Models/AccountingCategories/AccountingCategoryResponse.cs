@@ -7,6 +7,13 @@ using System.Xml.Serialization;
 
 namespace ConcreteGo.Api.Client.Models.AccountingCategories
 {
+    [XmlRoot(ElementName = "AccountingCategoryQueryRs")]
+    public class AccountingCategoryResponse
+    {
+        [XmlElement(ElementName = "AccountingCategoryRet")]
+        public List<AccountingCategoryRet>? AccountingCategoryRet { get; set; }
+    }
+    
     [XmlRoot(ElementName = "AccountingCategoryRet")]
     public class AccountingCategoryRet
     {
