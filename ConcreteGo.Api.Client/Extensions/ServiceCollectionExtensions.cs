@@ -13,13 +13,8 @@ namespace ConcreteGo.Api.Client.Extensions
         /// </summary>
         public static IServiceCollection AddConcreteGoApiClient(this IServiceCollection services, IConfiguration configuration)
         {
-            // Register configuration options
             services.Configure<ConcreteGoApiOptions>(configuration.GetSection(ConcreteGoApiOptions.Section));
-            
-            // Add options validation
             services.AddSingleton<IValidateOptions<ConcreteGoApiOptions>, ConcreteGoApiOptionsValidator>();
-
-            // Register the client as scoped - options will be injected automatically
             services.AddScoped<ConcreteGoApiClient>();
 
             return services;
@@ -31,7 +26,6 @@ namespace ConcreteGo.Api.Client.Extensions
         public static IServiceCollection AddConcreteGoApiClient(this IServiceCollection services,
             string username, string password, string appId, string appKey, string? slug = null)
         {
-            // Validate parameters at registration time
             if (string.IsNullOrWhiteSpace(username))
                 throw new ArgumentException("Username cannot be null or empty", nameof(username));
             if (string.IsNullOrWhiteSpace(password))
@@ -41,8 +35,7 @@ namespace ConcreteGo.Api.Client.Extensions
             if (string.IsNullOrWhiteSpace(appKey))
                 throw new ArgumentException("AppKey cannot be null or empty", nameof(appKey));
 
-            // Register the client with explicit parameters
-            services.AddScoped<ConcreteGoApiClient>(_ =>
+            services.AddScoped(_ =>
                 new ConcreteGoApiClient(username, password, appId, appKey, slug));
 
             return services;
@@ -56,14 +49,8 @@ namespace ConcreteGo.Api.Client.Extensions
         {
             if (configureOptions == null)
                 throw new ArgumentNullException(nameof(configureOptions));
-
-            // Register configuration
             services.Configure(configureOptions);
-            
-            // Add options validation
             services.AddSingleton<IValidateOptions<ConcreteGoApiOptions>, ConcreteGoApiOptionsValidator>();
-
-            // Register the client - options will be injected automatically
             services.AddScoped<ConcreteGoApiClient>();
 
             return services;
@@ -75,22 +62,53 @@ namespace ConcreteGo.Api.Client.Extensions
         public static IServiceCollection AddConcreteGoApiClient(this IServiceCollection services,
             IConfiguration configuration, Action<ConcreteGoApiOptions>? configureOptions = null)
         {
-            // Register and bind configuration options
             services.Configure<ConcreteGoApiOptions>(config =>
             {
                 configuration.GetSection(ConcreteGoApiOptions.Section).Bind(config);
                 configureOptions?.Invoke(config);
             });
-            
-            // Add options validation
             services.AddSingleton<IValidateOptions<ConcreteGoApiOptions>, ConcreteGoApiOptionsValidator>();
-
-            // Register the client
             services.AddScoped<ConcreteGoApiClient>();
 
             return services;
         }
+
+        /// <summary>
+        /// Adds ConcreteGoApiClient as a singleton for use in background services and scheduled tasks.
+        /// Note: This should only be used when the client needs to persist across the application lifetime.
+        /// </summary>
+        public static IServiceCollection AddConcreteGoApiClientSingleton(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.Configure<ConcreteGoApiOptions>(configuration.GetSection(ConcreteGoApiOptions.Section));
+            services.AddSingleton<IValidateOptions<ConcreteGoApiOptions>, ConcreteGoApiOptionsValidator>();
+            services.AddSingleton<ConcreteGoApiClient>();
+
+            return services;
+        }
+
+        /// <summary>
+        /// Adds ConcreteGoApiClient as a singleton with explicit parameters
+        /// </summary>
+        public static IServiceCollection AddConcreteGoApiClientSingleton(this IServiceCollection services,
+            string username, string password, string appId, string appKey, string? slug = null)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+                throw new ArgumentException("Username cannot be null or empty", nameof(username));
+            if (string.IsNullOrWhiteSpace(password))
+                throw new ArgumentException("Password cannot be null or empty", nameof(password));
+            if (string.IsNullOrWhiteSpace(appId))
+                throw new ArgumentException("AppId cannot be null or empty", nameof(appId));
+            if (string.IsNullOrWhiteSpace(appKey))
+                throw new ArgumentException("AppKey cannot be null or empty", nameof(appKey));
+            services.AddSingleton<ConcreteGoApiClient>(_ =>
+                new ConcreteGoApiClient(username, password, appId, appKey, slug));
+
+            return services;
+        }
+
     }
+
+
 
     /// <summary>
     /// Validates ConcreteGoApiOptions configuration at startup

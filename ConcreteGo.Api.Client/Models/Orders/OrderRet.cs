@@ -721,7 +721,7 @@ namespace ConcreteGo.Api.Client.Models.Orders
     public class OrderRetSchedules
     {
         [XmlElement(ElementName = "Schedule")]
-        public OrderRetSchedule Schedule { get; set; }
+        public List<OrderRetSchedule> Schedule { get; set; }
         public bool ShouldSerializeSchedule()
         {
             return Schedule != null;
