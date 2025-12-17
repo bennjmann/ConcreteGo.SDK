@@ -57,12 +57,6 @@ namespace ConcreteGo.Api.Client
         {
         }
 
-        //// Constructor for scoped services with IOptionsSnapshot for configuration reloading
-        //public ConcreteGoApiClient(IOptionsSnapshot<ConcreteGoApiOptions> options)
-        //    : this(options.Value.Username, options.Value.Password, options.Value.AppId, options.Value.AppKey, options.Value.Slug)
-        //{
-        //}
-
         // Original constructor for backward compatibility and explicit parameter usage
         public ConcreteGoApiClient(string username, string password, string appId, string appKey, string? slug)
         {

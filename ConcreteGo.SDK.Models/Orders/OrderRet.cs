@@ -593,7 +593,7 @@ namespace ConcreteGo.SDK.Models.Orders
     {
 
         [XmlElement(ElementName = "Schedule")]
-        public Schedule Schedule { get; set; }
+        public List<Schedule> Schedule { get; set; }
     }
 
     [XmlRoot(ElementName = "Product")]
