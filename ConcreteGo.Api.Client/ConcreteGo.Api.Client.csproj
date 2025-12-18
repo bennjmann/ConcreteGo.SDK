@@ -5,6 +5,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	  <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Title>concretego-api-client-1</Title>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <Description>.net helper for using the Sysdyne Concrete Go API.</Description>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +22,13 @@
     <PackageReference Include="System.ServiceModel.Http" Version="8.1.2" />
     <PackageReference Include="System.ServiceModel.NetTcp" Version="8.1.2" />
     <PackageReference Include="System.ServiceModel.Security" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
