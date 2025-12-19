@@ -20,6 +20,7 @@ using ConcreteGo.Api.Client.Models.PriceCategories;
 using ConcreteGo.Api.Client.Models.Processing;
 using ConcreteGo.Api.Client.Models.Projects;
 using ConcreteGo.Api.Client.Models.Quotes;
+using ConcreteGo.Api.Client.Models.ReasonCodes;
 using ConcreteGo.Api.Client.Models.TaxAuthority;
 using ConcreteGo.Api.Client.Models.TaxCodes;
 using ConcreteGo.Api.Client.Models.TaxLocations;
@@ -497,6 +498,23 @@ namespace ConcreteGo.Api.Client
             var request = BuildXmlRequest(options);
             var response = await ProcessRequest<QuoteResponse>(request);
             return response?.QuoteRet;
+        }
+
+        #endregion
+
+        #region Reason Codes
+
+        public async Task<List<ReasonCodeRet>?> GetReasonCodesAsync(Action<ReasonCodeOptions>? settings = null)
+        {
+            await ManageLogin();
+            var options = new ReasonCodeOptions();
+            if (settings != null)
+            {
+                settings(options);
+            }
+            var request = BuildXmlRequest(options);
+            var response = await ProcessRequest<ReasonCodeResponse>(request);
+            return response?.ReasonCodeRet;
         }
 
         #endregion
