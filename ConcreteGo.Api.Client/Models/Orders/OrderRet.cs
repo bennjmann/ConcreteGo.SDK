@@ -60,14 +60,14 @@ namespace ConcreteGo.Api.Client.Models.Orders
         }
 
         [XmlElement(ElementName = "ProjectCode")]
-        public string ProjectCode { get; set; }
+        public string? ProjectCode { get; set; }
         public bool ShouldSerializeProjectCode()
         {
             return !string.IsNullOrEmpty(ProjectCode);
         }
 
         [XmlElement(ElementName = "ProjectName")]
-        public string ProjectName { get; set; }
+        public string? ProjectName { get; set; }
         public bool ShouldSerializeProjectName()
         {
             return !string.IsNullOrEmpty(ProjectName);
@@ -81,14 +81,14 @@ namespace ConcreteGo.Api.Client.Models.Orders
         }
 
         [XmlElement(ElementName = "PurchaseOrder")]
-        public string PurchaseOrder { get; set; }
+        public string? PurchaseOrder { get; set; }
         public bool ShouldSerializePurchaseOrder()
         {
             return !string.IsNullOrEmpty(PurchaseOrder);
         }
 
         [XmlElement(ElementName = "JobNumber")]
-        public string JobNumber { get; set; }
+        public string? JobNumber { get; set; }
         public bool ShouldSerializeJobNumber()
         {
             return !string.IsNullOrEmpty(JobNumber);

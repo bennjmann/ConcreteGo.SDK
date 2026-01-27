@@ -500,6 +500,8 @@ namespace ConcreteGo.Api.Client.Models.Items
     {
         [XmlElement(ElementName = "Sort")]
         public int Sort { get; set; }
+        [XmlElement(ElementName = "ItemID")]
+        public int ItemID { get; set; }
 
         [XmlElement(ElementName = "Code")]
         public string Code { get; set; } = string.Empty;
