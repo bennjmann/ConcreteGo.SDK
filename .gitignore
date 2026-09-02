@@ -364,3 +364,4 @@ FodyWeavers.xsd
 /ConcreteGo.SDK.TestConsole/ConcreteGo.SDK.TestConsole.csproj
 /ConcreteGo.SDK.TestConsole/Program.cs
 /ConcreteGo.SDK.TestConsole/tickets.cs
+/.idea

@@ -40,7 +40,7 @@ using WebcreteAPI;
 
 namespace ConcreteGo.Api.Client
 {
-    public class ConcreteGoApiClient
+    public class ConcreteGoApiClient : IConcreteGoApiClient
     {
         private readonly string _username;
         private readonly string _password;
@@ -596,7 +596,7 @@ namespace ConcreteGo.Api.Client
 
         #region Trucks
 
-        public async Task<List<TruckRet>?> GetTrucksAsync(Action<TruckRequestOptions>? settings = null!)
+        public async Task<List<TruckRet>?> GetTrucksAsync(Action<TruckRequestOptions>? settings = null)
         {
             await ManageLogin();
             var options = new TruckRequestOptions();
