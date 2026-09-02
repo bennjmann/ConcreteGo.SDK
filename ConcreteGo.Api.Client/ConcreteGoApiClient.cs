@@ -596,7 +596,7 @@ namespace ConcreteGo.Api.Client
 
         #region Trucks
 
-        public async Task<List<TruckRet>?> GetTrucksAsync(Action<TruckRequestOptions>? settings = null!)
+        public async Task<List<TruckRet>?> GetTrucksAsync(Action<TruckRequestOptions>? settings = null)
         {
             await ManageLogin();
             var options = new TruckRequestOptions();
