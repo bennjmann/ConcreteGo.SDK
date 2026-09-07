@@ -40,7 +40,7 @@ using WebcreteAPI;
 
 namespace ConcreteGo.Api.Client
 {
-    public class ConcreteGoApiClient
+    public class ConcreteGoApiClient : IConcreteGoApiClient
     {
         private readonly string _username;
         private readonly string _password;

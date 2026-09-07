@@ -67,7 +67,7 @@ public interface IConcreteGoApiClient
     Task<List<TicketRet>?> GetTicketsAsync(Action<TicketRequestOptions>? settings = null);
     Task<List<TicketUpdateRet>?> AddOrUpdateTicketAsync(TicketAddOrUpdateRequest data);
     Task<List<TruckRet>?> GetTrucksAsync(Action<TruckRequestOptions>? settings = null);
-    public async Task<List<TruckRet>?> AddOrUpdateTruck(TruckAddOrUpdateRequest data);
-    public async Task<List<UOMRet>?> GetUOMsAsync(Action<UOMRequestOptions>? settings = null);
-    public async Task<VersionRet?> GetVersionAsync(Action<VersionOptions>? settings = null);
+    Task<List<TruckRet>?> AddOrUpdateTruck(TruckAddOrUpdateRequest data);
+    Task<List<UOMRet>?> GetUOMsAsync(Action<UOMRequestOptions>? settings = null);
+    Task<VersionRet?> GetVersionAsync(Action<VersionOptions>? settings = null);
 }
