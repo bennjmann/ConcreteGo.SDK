@@ -452,5 +452,45 @@ namespace ConcreteGo.Api.Client.Models.Trucks
 
         [XmlElement(ElementName = "PermanentColorCode")]
         public string PermanentColorCode { get; set; }
+
+        [XmlElement(ElementName = "HaulerID")]
+        public string _HaulerId { get; set; }
+        [XmlIgnore]
+        public int? HaulerId
+        {
+            get
+            {
+                if (int.TryParse(_HaulerId, out var value))
+                    return value;
+                return null;
+            }
+        }
+
+        [XmlElement(ElementName = "HaulerCode")]
+        public string HaulerCode { get; set; }
+
+        [XmlElement(ElementName = "HaulerName")]
+        public string HaulerName { get; set; }
+        [XmlElement(ElementName = "BadgeCardNumber")]
+        public string BadgeCardNumber { get; set; }
+
+        [XmlElement(ElementName = "GrossVehicleMass")]
+        public string _GrossVehicleMass { get; set; }
+        [XmlIgnore]
+        public double? GrossVehicleMass
+        {
+            get
+            {
+                if (double.TryParse(_GrossVehicleMass, out var value))
+                    return value;
+                return null;
+            }
+        }
+
+        [XmlElement(ElementName = "GrossVehicleMassUnitCode")]
+        public string GrossVehicleMassUnitCode { get; set; }
+
+        [XmlElement(ElementName = "GrossVehicleMassUnitName")]
+        public string GrossVehicleMassUnitName { get; set; }
     }
 }
