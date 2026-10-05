@@ -102,14 +102,14 @@ namespace ConcreteGo.Api.Client.Models.Orders
         }
 
         [XmlElement(ElementName = "DeliveryAddr2")]
-        public string DeliveryAddr2 { get; set; }
+        public string? DeliveryAddr2 { get; set; }
         public bool ShouldSerializeDeliveryAddr2()
         {
             return !string.IsNullOrEmpty(DeliveryAddr2);
         }
 
         [XmlElement(ElementName = "DeliveryAddr3")]
-        public string DeliveryAddr3 { get; set; }
+        public string? DeliveryAddr3 { get; set; }
         public bool ShouldSerializeDeliveryAddr3()
         {
             return !string.IsNullOrEmpty(DeliveryAddr3);
@@ -278,7 +278,7 @@ namespace ConcreteGo.Api.Client.Models.Orders
         }
 
         [XmlElement(ElementName = "OrderedByName")]
-        public string OrderedByName { get; set; }
+        public string? OrderedByName { get; set; }
         public bool ShouldSerializeOrderedByName()
         {
             return !string.IsNullOrEmpty(OrderedByName);
